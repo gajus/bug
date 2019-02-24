@@ -8,6 +8,12 @@
 
 Bug Node.js code.
 
+## Disclaimer
+
+This is just an experiment.
+
+In 99.99% of the use cases, you want the native [Node.js debugger](https://nodejs.org/api/debugger.html).
+
 ## Example usage
 
 ```js
