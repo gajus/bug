@@ -5,21 +5,16 @@ import deasync from 'deasync';
 
 readline.emitKeypressEvents(process.stdin);
 
-let done = false;
+process.stdin.setRawMode(true);
 
-let eventHandler;
+let done;
 
 const handler = (str, key) => {
-  console.log({
-    str, key
-  });
-
   if (str === 'n') {
     done = true;
 
-    eventHandler.unref();
-
-    process.stdin.setRawMode(false);
+    process.stdin.off('keypress', handler);
+    process.stdin.pause();
   }
 
   if (key.ctrl && key.name === 'c') {
@@ -27,10 +22,13 @@ const handler = (str, key) => {
   }
 };
 
-eventHandler = process.stdin.on('keypress', handler);
-
 export default () => {
-  process.stdin.setRawMode(true);
+  console.log('Press "n" key to advance.');
+
+  done = false;
+
+  process.stdin.on('keypress', handler);
+  process.stdin.resume();
 
   deasync.loopWhile(() => {
     return !done;

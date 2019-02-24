@@ -7,3 +7,31 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/kuizinas.svg?style=social&label=Follow)](https://twitter.com/kuizinas)
 
 Bug Node.js code.
+
+## Example usage
+
+```js
+import bug from 'bug';
+
+console.log('a', Date.now());
+
+bug();
+
+console.log('b', Date.now());
+
+bug();
+
+console.log('c', Date.now());
+
+```
+
+In the above example, event cycle does not advance past `bug` invocation until "n" key is pressed.
+
+```js
+a 1551014945604
+Press "n" key to advance.
+b 1551014947020
+Press "n" key to advance.
+c 1551014949337
+
+```
