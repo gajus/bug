@@ -25,13 +25,13 @@ console.log('c', Date.now());
 
 ```
 
-In the above example, event cycle does not advance past `bug` invocation until "n" key is pressed.
+In the above example, event cycle does not advance past `bug` invocation until "c" key is pressed.
 
 ```js
 a 1551014945604
-Press "n" key to advance.
+Press "c" key to continue execution.
 b 1551014947020
-Press "n" key to advance.
+Press "c" key to continue execution.
 c 1551014949337
 
 ```

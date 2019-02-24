@@ -10,7 +10,7 @@ process.stdin.setRawMode(true);
 let done;
 
 const handler = (str, key) => {
-  if (str === 'n') {
+  if (str === 'c') {
     done = true;
 
     process.stdin.off('keypress', handler);
@@ -23,7 +23,7 @@ const handler = (str, key) => {
 };
 
 export default () => {
-  console.log('Press "n" key to advance.');
+  console.log('Press "c" key to continue execution.');
 
   done = false;
 
